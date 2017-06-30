@@ -64,6 +64,7 @@ public class PluginController : MonoBehaviour
 			#if !UNITY_EDITOR
 			callAnimation ("nodAnim");
 			#endif
+			avatarAC.UpdateAnimations ("nodAnim");
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space))
