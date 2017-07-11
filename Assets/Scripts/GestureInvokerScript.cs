@@ -14,7 +14,7 @@ public class GestureInvokerScript : MonoBehaviour {
 
 	public void StartBlinkCoroutine()
 	{
-		randomBlinkInterval = Random.Range (1f, 3f);
+		randomBlinkInterval = Random.Range (1f, 8f);
 		StartCoroutine (BlinkIntervalLogic(randomBlinkInterval));
 	}
 	
@@ -32,7 +32,12 @@ public class GestureInvokerScript : MonoBehaviour {
 
 	private void BlinkCall()
 	{			
-		animator.CrossFade ("Blink", .1f, 1, 0);
+		animator.SetInteger ("animStateGestures", 1);
+	}
+
+	private void BlinkFinished()
+	{
+		animator.SetInteger ("animStateGestures", 0);
 	}
 
 	public void StartNodCoroutine()
@@ -55,6 +60,11 @@ public class GestureInvokerScript : MonoBehaviour {
 
 	private void NodCall()
 	{			
-		animator.CrossFade ("Nod", .1f, 3, 0);
+		animator.SetInteger ("animStateNods", 1);
+	}
+
+	private void NodFinished()
+	{			
+		animator.SetInteger ("animStateNods", 0);
 	}
 }

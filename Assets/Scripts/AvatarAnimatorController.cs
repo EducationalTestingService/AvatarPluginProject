@@ -58,6 +58,10 @@ public class AvatarAnimatorController : MonoBehaviour {
 			avatarAnimator.SetInteger("animState", 10);
 			break;
 
+		case "smileAnim":
+			avatarAnimator.SetInteger("animState", 11);
+			break;
+
 		case "interview_complaintA":
 			avatarAnimator.SetInteger("responseQ4", 1);
 			break;

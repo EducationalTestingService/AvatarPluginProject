@@ -272,6 +272,10 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: b339dc24fdf6a5e4484e9a384e766c56, type: 2}
+    - target: {fileID: 100100, guid: 884b36c63cff24843b352f448ae6d224, type: 3}
+      propertyPath: m_Name
+      value: InterviewerObj
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 884b36c63cff24843b352f448ae6d224, type: 3}
   m_IsPrefabParent: 0

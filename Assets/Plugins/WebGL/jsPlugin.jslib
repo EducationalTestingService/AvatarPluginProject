@@ -12,9 +12,10 @@ var jsPlugin =
       SendMessage("InterviewerObj", "pluginNumberReturn", returnNum);
     },
 
-    speakNow: function()
+    callAudio: function(audioFile)
     {
-      console.log("speaking");
+      var returnAudioString = Pointer_stringify(audioFile);
+      SendMessage("InterviewerObj", "pluginAudioReturn", returnAudioString);
     },
 }
 

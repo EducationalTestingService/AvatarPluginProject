@@ -18,6 +18,12 @@ public class PluginController : MonoBehaviour
 		avatarAC = FindObjectOfType<AvatarAnimatorController> ();
 		aMS = FindObjectOfType<AudioManagerScript> ();
 		animator = GetComponent<Animator> ();
+
+		#if !UNITY_EDITOR
+		FindObjectOfType<GestureInvokerScript> ().StartNodCoroutine ();
+		FindObjectOfType<GestureInvokerScript> ().StartBlinkCoroutine ();
+		animator.SetInteger ("animBodyState", 1);
+		#endif
 	}
 
 	[DllImport("__Internal")]
@@ -38,7 +44,12 @@ public class PluginController : MonoBehaviour
 	}
 
 	[DllImport("__Internal")]
-	private static extern void speakNow ();
+	private static extern void callAudio (string audioFile);
+
+	public void pluginAudioReturn(string returnAudioString)
+	{
+		aMS.PlayAudio (returnAudioString);
+	}
 
 	void Update () {
 
@@ -50,19 +61,19 @@ public class PluginController : MonoBehaviour
 			avatarAC.UpdateAnimations ("idleAnim");
 		}
 
-		if (Input.GetKeyDown(KeyCode.R))
-		{	
+		if (Input.GetKeyDown(KeyCode.W))
+		{
 			#if !UNITY_EDITOR
-			callAnimation ("nodAnim");
+			callAnimation ("smileAnim");
 			#endif
-			avatarAC.UpdateAnimations ("nodAnim");
+			avatarAC.UpdateAnimations ("smileAnim");
 		}
 
 		if (Input.GetKeyDown(KeyCode.Keypad1))
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_intro");
-			aMS.PlayAudio ("interview_intro");
+			callAudio ("interview_intro");
 			#endif
 			avatarAC.UpdateAnimations ("interview_intro");
 			aMS.PlayAudio ("interview_intro");
@@ -72,7 +83,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q1");
-			aMS.PlayAudio ("interview_Q1");
+			callAudio ("interview_Q1");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q1");
 			aMS.PlayAudio ("interview_Q1");
@@ -82,7 +93,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q2");
-			aMS.PlayAudio ("interview_Q2");
+			callAudio ("interview_Q2");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q2");
 			aMS.PlayAudio ("interview_Q2");
@@ -92,7 +103,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q3");
-			aMS.PlayAudio ("interview_Q3");
+			callAudio ("interview_Q3");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q3");
 			aMS.PlayAudio ("interview_Q3");
@@ -102,7 +113,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q4");
-			aMS.PlayAudio ("interview_Q4_complaint");
+			callAudio ("interview_Q4_complaint");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q4");
 			aMS.PlayAudio ("interview_Q4_complaint");
@@ -112,7 +123,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q5");
-			aMS.PlayAudio ("interview_Q5_Disagreement");
+			callAudio ("interview_Q5_Disagreement");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q5");
 			aMS.PlayAudio ("interview_Q5_Disagreement");
@@ -122,7 +133,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q6");
-			aMS.PlayAudio ("interview_Q6_Coupon");
+			callAudio ("interview_Q6_Coupon");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q6");
 			aMS.PlayAudio ("interview_Q6_Coupon");
@@ -132,7 +143,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Q7");
-			aMS.PlayAudio ("interview_Q7");
+			callAudio ("interview_Q7");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Q7");
 			aMS.PlayAudio ("interview_Q7");
@@ -142,7 +153,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Default");
-			aMS.PlayAudio ("interview_Default");
+			callAudio ("interview_Default");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Default");
 			aMS.PlayAudio ("interview_Default");
@@ -152,7 +163,7 @@ public class PluginController : MonoBehaviour
 		{	
 			#if !UNITY_EDITOR
 			callAnimation ("interview_Exit");
-			aMS.PlayAudio ("interview_Exit");
+			callAudio ("interview_Exit");
 			#endif
 			avatarAC.UpdateAnimations ("interview_Exit");
 			aMS.PlayAudio ("interview_Exit");
@@ -160,17 +171,23 @@ public class PluginController : MonoBehaviour
 
 		if (Input.GetKeyDown(KeyCode.KeypadDivide))
 		{
+			//#if UNITY_EDITOR
 			animator.SetInteger ("animBodyState", 1);
+			//#endif
 		}
 
 		if (Input.GetKeyDown(KeyCode.KeypadMultiply))
 		{
+			//#if UNITY_EDITOR
 			FindObjectOfType<GestureInvokerScript> ().StartBlinkCoroutine ();
+			//#endif
 		}
 
 		if (Input.GetKeyDown(KeyCode.KeypadMinus))
 		{
+			//#if UNITY_EDITOR
 			FindObjectOfType<GestureInvokerScript> ().StartNodCoroutine ();
+			//#endif
 		}
 
 		if (Input.GetKeyDown(KeyCode.Space))
