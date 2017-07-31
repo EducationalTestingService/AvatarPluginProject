@@ -19,6 +19,7 @@ public class PluginController : MonoBehaviour
 		aMS = FindObjectOfType<AudioManagerScript> ();
 		animator = GetComponent<Animator> ();
 
+
 		#if !UNITY_EDITOR
 		FindObjectOfType<GestureInvokerScript> ().StartNodCoroutine ();
 		FindObjectOfType<GestureInvokerScript> ().StartBlinkCoroutine ();
@@ -41,6 +42,8 @@ public class PluginController : MonoBehaviour
 	{
 		int stringToInt = System.Convert.ToInt32 (returnNum);
 		Debug.Log("Our javascript processed, returned number is " + stringToInt);
+		Console.WriteLine ("Our javascript processed, returned number is " + stringToInt);
+
 	}
 
 	[DllImport("__Internal")]
@@ -49,6 +52,12 @@ public class PluginController : MonoBehaviour
 	public void pluginAudioReturn(string returnAudioString)
 	{
 		aMS.PlayAudio (returnAudioString);
+	}
+
+	public void commandReceiver(string returnCommandString)
+	{
+		avatarAC.UpdateAnimations (returnCommandString);
+		aMS.PlayAudio (returnCommandString);
 	}
 
 	void Update () {
@@ -198,4 +207,5 @@ public class PluginController : MonoBehaviour
 			#endif
 		}
 	}
+
 }
