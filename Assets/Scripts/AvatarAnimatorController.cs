@@ -22,41 +22,49 @@ public class AvatarAnimatorController : MonoBehaviour {
 		case "interview_intro":
 			avatarAnimator.SetInteger("animState", 1);
 			avatarAnimator.Play("interview_intro", 1, 0);
+			avatarAnimator.Play("interview_Intro_Body", 0, 0);
 			break;
 
 		case "interview_Q1":
 			avatarAnimator.SetInteger("animState", 2);
 			avatarAnimator.Play("interview_Q1", 1, 0);
+			avatarAnimator.Play("interview_Q1_Body", 0, 0);
 			break;
 
 		case "interview_Q2":
 			avatarAnimator.SetInteger("animState", 3);
 			avatarAnimator.Play("interview_Q2", 1, 0);
+			avatarAnimator.Play("interview_Q2_Body", 0, 0);
 			break;
 
 		case "interview_Q3":
 			avatarAnimator.SetInteger("animState", 4);
 			avatarAnimator.Play("interview_Q3", 1, 0);
+			avatarAnimator.Play("interview_Q3_Body", 0, 0);
 			break;
 
 		case "interview_Q4":
 			avatarAnimator.SetInteger ("animState", 5);
 			avatarAnimator.Play("interview_Q4", 1, 0);
+			avatarAnimator.Play("interview_Q4_Body", 0, 0);
 			break;
 
 		case "interview_Q5":
 			avatarAnimator.SetInteger("animState", 6);
 			avatarAnimator.Play("interview_Q5", 1, 0);
+			avatarAnimator.Play("interview_Q5_Body", 0, 0);
 			break;
 
 		case "interview_Q6":
 			avatarAnimator.SetInteger("animState", 7);
 			avatarAnimator.Play("interview_Q6", 1, 0);
+			avatarAnimator.Play("interview_Q6_Body", 0, 0);
 			break;
 
 		case "interview_Q7":
 			avatarAnimator.SetInteger("animState", 8);
 			avatarAnimator.Play("interview_Q7", 1, 0);
+			avatarAnimator.Play("interview_Q7_Body", 0, 0);
 			break;
 
 		case "interview_Default":
@@ -67,6 +75,7 @@ public class AvatarAnimatorController : MonoBehaviour {
 		case "interview_Exit":
 			avatarAnimator.SetInteger("animState", 10);
 			avatarAnimator.Play("interview_Exit", 1, 0);
+			avatarAnimator.Play("interview_Exit_Body", 0, 0);
 			break;
 
 		case "interview_complaintA":
