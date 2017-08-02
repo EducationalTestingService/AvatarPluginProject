@@ -5,9 +5,33 @@ public class AvatarAnimatorController : MonoBehaviour {
 	Animator avatarAnimator;
 	public string animationName;
 
+	int idleIndex;
+	public AnimationClip[] idleAnimations;
+	AnimatorOverrideController overrideController;
+	public AnimationClip testAnim;
+
+
 	// Use this for initialization
 	void Start () {
 		avatarAnimator = GetComponent<Animator>();
+		idleIndex = 0;
+		overrideController = new AnimatorOverrideController (avatarAnimator.runtimeAnimatorController);
+		overrideController.name = "overrideController";
+		avatarAnimator.runtimeAnimatorController = overrideController;
+	}
+
+	void DetermineIdleAnim(int input)
+	{
+		if (input <= 6){
+			idleIndex = input;
+			overrideController ["idle4BakedAnim"] = idleAnimations[idleIndex];
+		}
+	}
+
+	void FadeAnimations(float fadeTime)
+	{
+		avatarAnimator.CrossFade ("interview_Idle", fadeTime, 0);
+		avatarAnimator.SetInteger ("animState", 0);
 	}
 
 	public void UpdateAnimations(string animationName)
@@ -15,8 +39,8 @@ public class AvatarAnimatorController : MonoBehaviour {
 		switch (animationName)
 		{
 		case "idleAnim":
-			avatarAnimator.SetInteger("animState", 0);
-			avatarAnimator.Play("noSpeech", 1, 0);
+			avatarAnimator.SetInteger ("animState", 0);
+			avatarAnimator.Play ("noSpeech", 1, 0);
 			break;
 
 		case "interview_intro":
@@ -26,9 +50,10 @@ public class AvatarAnimatorController : MonoBehaviour {
 			break;
 
 		case "interview_Q1":
-			avatarAnimator.SetInteger("animState", 2);
-			avatarAnimator.Play("interview_Q1", 1, 0);
-			avatarAnimator.Play("interview_Q1_Body", 0, 0);
+			avatarAnimator.SetInteger ("animState", 2);
+			avatarAnimator.Play ("interview_Q1", 1, 0);
+			avatarAnimator.Play ("interview_Q1_Body", 0, 0);
+//			avatarAnimator.CrossFade ("interview_Q1_Body", .1f, 0);
 			break;
 
 		case "interview_Q2":

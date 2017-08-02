@@ -1578,7 +1578,7 @@ ModelImporter:
       name: q1BakedAnim
       takeName: metarig|metarigAction
       firstFrame: 3455
-      lastFrame: 3543
+      lastFrame: 3542
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -2160,7 +2160,7 @@ ModelImporter:
       name: q3BakedAnim
       takeName: metarig|metarigAction
       firstFrame: 3595
-      lastFrame: 3743
+      lastFrame: 3742
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

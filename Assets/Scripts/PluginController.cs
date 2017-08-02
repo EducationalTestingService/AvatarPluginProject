@@ -68,6 +68,7 @@ public class PluginController : MonoBehaviour
 			callAnimation ("idleAnim");
 			#endif
 			avatarAC.UpdateAnimations ("idleAnim");
+			//animator.CrossFade ("interview_Idle", .2f, 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.W))
