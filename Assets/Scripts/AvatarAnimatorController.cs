@@ -9,6 +9,7 @@ public class AvatarAnimatorController : MonoBehaviour {
 	public AnimationClip[] idleAnimations;
 	AnimatorOverrideController overrideController;
 	public AnimationClip testAnim;
+	Canvas canvas;
 
 
 	// Use this for initialization
@@ -18,6 +19,8 @@ public class AvatarAnimatorController : MonoBehaviour {
 		overrideController = new AnimatorOverrideController (avatarAnimator.runtimeAnimatorController);
 		overrideController.name = "overrideController";
 		avatarAnimator.runtimeAnimatorController = overrideController;
+		canvas = FindObjectOfType<Canvas> ();
+		canvas.enabled = false;
 	}
 
 	void DetermineIdleAnim(int input)
@@ -26,6 +29,10 @@ public class AvatarAnimatorController : MonoBehaviour {
 			idleIndex = input;
 			overrideController ["idle4BakedAnim"] = idleAnimations[idleIndex];
 		}
+	}
+
+	void EnableCanvas(){		
+		canvas.enabled = true;
 	}
 
 	void FadeAnimations(float fadeTime)
@@ -98,9 +105,10 @@ public class AvatarAnimatorController : MonoBehaviour {
 			break;
 
 		case "interview_Exit":
-			avatarAnimator.SetInteger("animState", 10);
-			avatarAnimator.Play("interview_Exit", 1, 0);
-			avatarAnimator.Play("interview_Exit_Body", 0, 0);
+			avatarAnimator.SetInteger ("animState", 10);
+			avatarAnimator.Play ("interview_Exit", 1, 0);
+			avatarAnimator.Play ("interview_Exit_Body", 0, 0);
+			EnableCanvas ();
 			break;
 
 		case "interview_complaintA":
@@ -158,8 +166,8 @@ public class AvatarAnimatorController : MonoBehaviour {
 			avatarAnimator.Play("interview_CouponD", 1, 0);
 			break;
 
-		case "smileAnim":
-			avatarAnimator.SetInteger("animState", 22);
+		case "additiveNodAnim":
+			avatarAnimator.SetInteger ("animStateNods", 1);
 			break;
 
 		default:

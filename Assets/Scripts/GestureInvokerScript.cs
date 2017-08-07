@@ -66,5 +66,6 @@ public class GestureInvokerScript : MonoBehaviour {
 	private void NodFinished()
 	{			
 		animator.SetInteger ("animStateNods", 0);
+		animator.Play ("notNodding", 2, 0);
 	}
 }

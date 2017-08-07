@@ -74,9 +74,9 @@ public class PluginController : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.W))
 		{
 			#if !UNITY_EDITOR
-			callAnimation ("smileAnim");
+			callAnimation ("additiveNodAnim");
 			#endif
-			avatarAC.UpdateAnimations ("smileAnim");
+			avatarAC.UpdateAnimations ("additiveNodAnim");
 		}
 
 		if (Input.GetKeyDown(KeyCode.Keypad1))
