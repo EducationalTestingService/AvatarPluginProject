@@ -11,14 +11,14 @@ For the avatar to become interactive, this package must be included in a website
 
 Build Method
 ------------
-# Clone this repo
-# Open the top-level folder of this project using the Unity3d IDE v5.6.2+
-# In Unity, go to File > Build Settings
-# In the top pane, verify that TitleScene and mainScene are listed
-# In the left pane, ensure that WebGL is the target platform
-# Ensure that Player Settings > Inspector > Other Settings > Optimization > Strip Engine Code = on
-# Click 'Build and Run'
-# When prompted for a local folder to save the build to, we recommend creating a 'builds' folder at the top-level of this project. We add this folder to our .gitignore
-# When the build is finished after several minutes, Unity will open WindowsExplorer to reveal the new folder. This folder must be copied to your website.
+1. Clone this repo
+1. Open the top-level folder of this project using the Unity3d IDE v5.6.2+
+1. In Unity, go to File > Build Settings
+1. In the top pane, verify that TitleScene and mainScene are listed
+1. In the left pane, ensure that WebGL is the target platform
+1. Ensure that Player Settings > Inspector > Other Settings > Optimization > Strip Engine Code = on
+1. Click 'Build and Run'
+1. When prompted for a local folder to save the build to, we recommend creating a 'builds' folder at the top-level of this project. We add this folder to our .gitignore
+1. When the build is finished after several minutes, Unity will open WindowsExplorer to reveal the new folder. This folder must be copied to your website.
 
 We intend to provide further instructions later.
